@@ -35,7 +35,7 @@
       <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Daftar</button>
       <p class="mt-5 mb-3 text-muted">&copy; KKLP Pelayanan Masyarakat 2019</p>
     </form>
   
@@ -49,6 +49,7 @@
         var parts = value.split("; " + name + "=");
         if (parts.length == 2) return parts.pop().split(";").shift();
       }
+      
       function periksaLogin() {
         var username = getCookie("username");
         if(username !== undefined)
