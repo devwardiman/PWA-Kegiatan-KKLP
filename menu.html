@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"               content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"  content="ie=edge">
+  <meta name="theme-color"            content="#2196F3">
+  <title>KKLP Pelayanan Masyarakat</title>
+  <link rel="stylesheet"    href="css/bootstrap.min.css">
+  <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css">
+  <link rel="stylesheet"    href="css/signin.css">
+  <link rel="shortcut icon" href="favorite.png" type="image/x-icon">
+  <style>
+    .modal-body{
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .trumbowyg-editor, .trumbowyg-textarea {
+        position: relative;
+        box-sizing: border-box;
+        padding: 20px;
+        min-height: 100px;
+        width: 100%;
+        border-style: none;
+        resize: none;
+        outline: 0;
+        overflow: auto;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+      }
+      .trumbowyg-box, .trumbowyg-editor {
+        display: block;
+        position: relative;
+        border: 1px solid #DDD;
+        width: 100%;
+        min-height: 100px;
+        margin: 0px auto;
+      }
+      #TambahLaporan .modal-body{
+        padding: 0rem;
+      }
+    } 
+  </style>
+</head>
+<body class="text-center">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Menu</h1>
+    
+    <!-- Tombol Menu -->
+    <button class="btn btn-lg btn-primary btn-block" type="button" data-toggle="modal" data-target="#TambahLaporan">Buat Laporan</button>
+    <a class="btn btn-lg btn-primary btn-block" href="laporan.html">Daftar Laporan</a>
+    <!-- Tombol Menu -->
+
+    <p class="mt-5 mb-3 text-muted">&copy; KKLP Pelayanan Masyarakat 2019</p>
+  </form>
+
+  <!-- Modal Tambah Laporan -->
+  <div class="modal fade" id="TambahLaporan" tabindex="-1" role="dialog" aria-labelledby="TambahLaporanTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TambahLaporanTitle">Tambah Laporan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" id='TL'>
+            <div class="modal-body">
+              <textarea class="form-control" name="laporan" id="laporaninput" rows="1"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Tambah Laporan -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="js/idb.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    $('#laporaninput').trumbowyg({
+      btns: [['undo', 'redo'], // Only supported in Blink browsers
+      ['formatting','link'],
+      ['unorderedList', 'orderedList'],
+      ['horizontalRule'],
+      ['removeformat'],
+      ['strong', 'em'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull']]
+    });
+
+    $('#TambahLaporan').on('shown.bs.modal', function () {
+      $('#laporaninput').trigger('focus');
+    })
+
+    $(document).ready(function(){	
+      $("#TL").submit(function(event){
+        event.preventDefault();
+        var data = $('form#TL').serializeArray();
+        var kegiatan = data[0].value;
+        addItem(kegiatan);
+        $('#TambahLaporan').modal('hide');
+        $('.trumbowyg-editor').html('');
+        $('#laporaninput').val('');
+        return false;
+      });
+    })
+
+    navigator.serviceWorker.onmessage = (event) => {
+      const username = event.data.username;
+      setCookie("username",username,365);
+    };
+    
+    function setCookie(cname,cvalue,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = d.toGMTString();
+      var curCookie = cname + "=" + cvalue + 
+        "; expires=" + expires + 
+        "; path=" + "/";
+      document.cookie = curCookie;
+    }
+  </script>
+</body>
+</html>

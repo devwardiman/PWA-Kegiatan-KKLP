@@ -1,0 +1,70 @@
+'use strict';
+const CACHE_NAME = 'kklp-cache-v1';
+var urlsToCache = [
+  '/kklp/',
+  '/kklp/menu.html',
+  '/kklp/laporan.html',
+  '/kklp/offline.html',
+  '/kklp/favorite.png',
+  '/kklp/fa-user.png',
+  '/kklp/css/bootstrap.min.css',
+  '/kklp/css/signin.css',
+  '/kklp/js/main.js',
+  '/kklp/js/idb.js',
+  'https://code.jquery.com/jquery-3.4.1.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
+  'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css',
+  '/kklp/sw.js'
+];
+
+self.addEventListener('install', function (event) {
+  /* Perform install steps*/
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function (cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function (event) {
+  const url = new URL(event.request.url);
+  if (event.request.method === 'POST' && url.pathname === '/kklp/login') {
+    event.respondWith(Response.redirect('menu.html'));
+    event.waitUntil(async function () {
+      const data = await event.request.formData();
+      const client = await self.clients.get(event.resultingClientId);
+      const username = data.get('username');
+      client.postMessage({ username }); 
+    }());
+  }else{
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => response || fetch(event.request))
+        .catch(()=>{
+          if(event.request.mode == 'navigate'){
+            return caches.match('offline.html');
+          }
+        })
+    );
+  }
+});
+
+self.addEventListener('activate', function (event) {
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames
+          .filter(function (cacheName) {
+            return cacheName !== CACHE_NAME;
+          })
+          .map(function (cacheName) {
+            caches.delete(cacheName);
+          })
+      );
+    })
+  );
+});

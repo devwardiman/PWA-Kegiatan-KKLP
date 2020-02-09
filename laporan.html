@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"               content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"  content="ie=edge">
+  <meta name="theme-color"            content="#2196F3">
+  <title>Daftar Laporan</title>
+  <link rel="stylesheet"    href="css/bootstrap.min.css">
+  <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css">
+  <link rel="shortcut icon" href="favorite.png" type="image/x-icon">
+  <style>
+      body {
+        background: rgb(43, 43, 43);
+        color: white;
+      }
+      p,
+      h6 {
+        margin: 0px;
+      }
+
+      .laporan {
+        background-color: #d4d4d46e;
+        margin: 0 5px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      
+      .kegiatan{
+        text-align: left;
+      }
+      .modal{
+        color:black; 
+      }
+  </style>
+</head>
+<body style="text-align: center;">
+    <div class="container">
+      Daftar Laporan
+      <div id="data">
+        
+      </div>
+    </div>
+
+    <!-- Modal Hapus Laporan -->
+    <div class="modal fade" id="HapusLaporan" tabindex="-1" role="dialog" aria-labelledby="HapusLaporanTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="HapusLaporanTitle">Hapus Laporan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" id='HL'>
+              <div class="modal-body">
+                <input type="hidden" name="id" id="id">
+                Yakin Ingin Menghapus Laporan ?
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Hapus</button>
+          </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Hapus Laporan -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      $(document).ready(function(){	
+        read();
+        $("#HL").submit(function(event){
+          event.preventDefault();
+          var data = $('form#HL').serializeArray();
+          var id = parseInt(data[0].value);
+          hapus(id);
+          $('#HapusLaporan').modal('hide');
+          $("#id").val("");
+        });
+      });
+
+      $('#HapusLaporan').on('shown.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        var modal = $(this);
+        modal.find('.modal-body input').val(id);
+      })
+    </script>
+</body>
+</html>
