@@ -1,18 +1,18 @@
 {
   "name": "KKLP Pelayanan Masyarakat",
-  "start_url": "/",
+  "start_url": "/PWA-Kegiatan-KKLP",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#fff",
   "theme_color": "#f78f21",
   "icons": [
     {
-      "src": "/favorite.png",
+      "src": "PWA-Kegiatan-KKLP/favorite.png",
       "type": "image/png",
       "sizes": "1024x1024"
     },
     {
-      "src": "/favorite.png",
+      "src": "PWA-Kegiatan-KKLP/favorite.png",
       "type": "image/png",
       "sizes": "1024x1024",
       "purpose": "maskable"
