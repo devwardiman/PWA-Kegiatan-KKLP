@@ -31,7 +31,7 @@ self.addEventListener('install', function (event) {
 
 self.addEventListener('fetch', function (event) {
   const url = new URL(event.request.url);
-  if (event.request.method === 'POST' && url.pathname === '/kklp/login') {
+  if (event.request.method === 'POST' && url.pathname === '/PWA-Kegiatan-KKLP/login') {
     event.respondWith(Response.redirect('menu.html'));
     event.waitUntil(async function () {
       const data = await event.request.formData();
