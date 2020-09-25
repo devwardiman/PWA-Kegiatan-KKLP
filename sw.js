@@ -1,22 +1,22 @@
 'use strict';
 const CACHE_NAME = 'kklp-cache-v1';
 var urlsToCache = [
-  '/kklp/',
-  '/kklp/menu.html',
-  '/kklp/laporan.html',
-  '/kklp/offline.html',
-  '/kklp/favorite.png',
-  '/kklp/fa-user.png',
-  '/kklp/css/bootstrap.min.css',
-  '/kklp/css/signin.css',
-  '/kklp/js/main.js',
-  '/kklp/js/idb.js',
+  '/',
+  '/menu.html',
+  '/laporan.html',
+  '/offline.html',
+  '/favorite.png',
+  '/fa-user.png',
+  '/css/bootstrap.min.css',
+  '/css/signin.css',
+  '/js/main.js',
+  '/js/idb.js',
   'https://code.jquery.com/jquery-3.4.1.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css',
-  '/kklp/sw.js'
+  '/sw.js'
 ];
 
 self.addEventListener('install', function (event) {
