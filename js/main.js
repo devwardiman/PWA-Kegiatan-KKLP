@@ -1,6 +1,6 @@
 if('serviceWorker' in navigator) {
   console.log("Menginstal Service Worker");
-  navigator.serviceWorker.register('/kklp/sw.js')
+  navigator.serviceWorker.register('/PWA-Kegiatan-KKLP/sw.js')
   .then(function(reg) {
     console.info('Service Worker Terinstal.', reg);
   })
