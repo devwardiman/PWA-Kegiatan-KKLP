@@ -7,12 +7,12 @@
   "theme_color": "#f78f21",
   "icons": [
     {
-      "src": "/PWA-Kegiatan-KKLP/favorite.png",
+      "src": "/favorite.png",
       "type": "image/png",
       "sizes": "472x472"
     },
     {
-      "src": "/PWA-Kegiatan-KKLP/favorite.png",
+      "src": "/favorite.png",
       "type": "image/png",
       "sizes": "472x472",
       "purpose": "maskable"
