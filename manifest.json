@@ -1,6 +1,6 @@
 {
   "name": "KKLP Pelayanan Masyarakat",
-  "start_url": "/",
+  "start_url": "/PWA-Kegiatan-KKLP/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#fff",
