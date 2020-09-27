@@ -11,10 +11,13 @@ var urlsToCache = [
   '/PWA-Kegiatan-KKLP/css/signin.css',
   '/PWA-Kegiatan-KKLP/js/main.js',
   '/PWA-Kegiatan-KKLP/js/idb.js',
+  '/PWA-Kegiatan-KKLP/manifest.json',
   'https://code.jquery.com/jquery-3.4.1.min.js',
+  'https://code.jquery.com/jquery-3.3.1.slim.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/trumbowyg.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
+  'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.18.0/ui/trumbowyg.min.css'
 ];
 
