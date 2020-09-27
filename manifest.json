@@ -17,6 +17,17 @@
       "type": "image/png",
       "sizes": "472x472",
       "purpose": "maskable"
+    },
+    {
+      "src": "/PWA-Kegiatan-KKLP/splash.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/PWA-Kegiatan-KKLP/splash.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ]
 }
