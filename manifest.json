@@ -1,5 +1,6 @@
 {
-  "name": "KKLP Pelayanan Masyarakat",
+  "name": "PWA Kegiatan KKLP",
+  "short_name":"PWA KKLP",
   "start_url": "/PWA-Kegiatan-KKLP/",
   "display": "standalone",
   "orientation": "any",
