@@ -9,12 +9,12 @@
     {
       "src": "/PWA-Kegiatan-KKLP/favorite.png",
       "type": "image/png",
-      "sizes": "1024x1024"
+      "sizes": "762x570"
     },
     {
       "src": "/PWA-Kegiatan-KKLP/favorite.png",
       "type": "image/png",
-      "sizes": "1024x1024",
+      "sizes": "762x570",
       "purpose": "maskable"
     }
   ]
